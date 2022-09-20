@@ -1,14 +1,20 @@
 <template>
   <div class="grid grid-flow-row sm:grid-flow-col gap-4 max-w-md">
     <input type="text" name="newPlayer" id="newPlayer" v-model="newPlayer" placeholder="Player Name">
-    <input type="button" value="Add Player" @click="addPlayer" :disabled="newPlayer.length === 0 || repeatedIndex >= 0">
+    <button @click="addPlayer" :disabled="newPlayer.length === 0 || repeatedIndex >= 0">
+      <span class="sr-only">Add Player</span>
+      <FaIcon :icons="['user-check']" />
+    </button>
   </div>
   <div v-if="this.players.length">
     <ul class="grid grid-flow-row">
       <li v-for="(player, index) in players" :key="index">
         {{player}}
         <span v-if="repeatedIndex == index">(ya existe)</span>
-        <button @click="removePlayer(index)">Remove Player</button>
+        <button @click="removePlayer(index)">
+          <span class="sr-only">Remove Player</span>
+          <FaIcon :icons="['user-xmark']" />
+        </button>
       </li>
     </ul>
   </div>
@@ -16,8 +22,13 @@
 </template>
 
 <script>
+import FaIcon from "./FaIcon.vue"
+
 export default {
   name: 'RegisterPlayers',
+  components: {
+    FaIcon,
+  },
   data() {
     return {
       players: [],
