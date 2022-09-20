@@ -15,6 +15,7 @@ module.exports = {
       yellow: colors.amber,
       red: colors.rose,
       blue: colors.cyan,
+      orange: colors.orange,
     },
     extend: {
       transitionTimingFunction: {

@@ -22,7 +22,7 @@
 
     <div class="my-4">
       <ul v-if="this.players.length">
-        <li class="flex flex-row flex-nowrap justify-between p-2 rounded-md transition ease-ease duration-150 hover:bg-white/5" :class="{ 'bg-yellow-500 hover:bg-yellow-500 text-gray-900': repeatedIndex == index }" v-for="(player, index) in players" :key="index">
+        <li class="flex flex-row flex-nowrap justify-between p-2 rounded-md transition ease-ease duration-150 hover:bg-white/5" :class="{ 'bg-orange-400 hover:bg-orange-400 text-gray-900': repeatedIndex == index }" v-for="(player, index) in players" :key="index">
           {{player}}
           <button class="button bg-red-400 py-1 px-2 text-sm hover:bg-red-300 active:bg-red-500" @click="removePlayer(index)">
             <span class="sr-only">Remove Player</span>
